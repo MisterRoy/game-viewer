@@ -1,7 +1,6 @@
 # Game Viewer
-### Game viewer is a mobile app that let you search for video games and see more
-### information about.
-### It runs both on iOS and Android
+### Game viewer is a mobile app that let you search for video games and see more information about.
+### It runs both on iOS and Android.
 <br>
 <br>
 
