@@ -5,6 +5,7 @@ import {globalStyles} from "../global/styles";
 import ListItem from "../components/ListItem";
 import {getGames} from '../services/RawgApi'
 import appColors from "../global/colors";
+import { SharedElement } from 'react-navigation-shared-element';
 
 
 export default function HomePage({ navigation }){
@@ -58,12 +59,14 @@ export default function HomePage({ navigation }){
           data={data}
           renderItem={({item}) =>
             <TouchableOpacity onPress={() => goToDetailsPage(item.id)}>
-              <ListItem
-                imageSource={item.imageUri}
-                title={item.title}
-                genre={item.genre.name}
-                releaseDate={item.releaseDate}
-              />
+              <SharedElement id={'photo'}>
+                <ListItem
+                  imageSource={item.imageUri}
+                  title={item.title}
+                  genre={item.genre.name}
+                  releaseDate={item.releaseDate}
+                />
+              </SharedElement>
             </TouchableOpacity>
           }
         />

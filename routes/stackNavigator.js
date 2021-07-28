@@ -1,10 +1,10 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import HomePage from "../screens/HomePage";
 import appColors from '../global/colors'
 import GameDetailsPage from "../screens/GameDetailsPage";
 
-const Stack = createStackNavigator();
+const Stack = createSharedElementStackNavigator();
 
 export default function StackNavigator(){
   return (
@@ -33,7 +33,23 @@ export default function StackNavigator(){
         name={'GameDetailsPage'}
         component={GameDetailsPage}
         options={{
-          title: 'Game details'
+          title: 'Game details',
+          gestureEnabled: false,
+          transitionSpec: {
+            open: {animation: 'timing', config: {duration: 500}},
+            close: {animation: 'timing', config: {duration: 500}}
+          }
+        }}
+        sharedElementsConfig={(route, otherRoute, showing) => {
+          const { item } = route.params;
+          return [
+            {
+              id: 'photo',
+              animation: 'fade-out',
+              resize: 'stretch',
+              
+            }
+          ];
         }}
       />
       

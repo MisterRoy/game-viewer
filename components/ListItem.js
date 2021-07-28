@@ -2,6 +2,7 @@ import React from "react";
 import {View, Text, StyleSheet, Image} from 'react-native';
 import appColors from "../global/colors";
 import Label from "./Label";
+import { SharedElement } from 'react-navigation-shared-element';
 
 
 export default function ListItem(
@@ -17,11 +18,14 @@ export default function ListItem(
       <View
         style={styles.container}
       >
-        <Image
-          source={{uri: imageSource}}
-          style={styles.image}
-    
-        />
+        
+          <Image
+            source={{uri: imageSource}}
+            style={styles.image}
+  
+          />
+        
+        
         <View style={styles.block}>
       
           <View style={styles.header}>
@@ -64,6 +68,8 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 2,
+    // width: 100,
+    // height: 100,
     width: '100%',
     height: '100%',
     borderRadius: 10,

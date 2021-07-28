@@ -6,6 +6,7 @@ import appColors from "../global/colors";
 import Label from "../components/Label";
 import {getGameDetails} from "../services/RawgApi";
 import {getCurrentTime} from "../services/currentTime";
+import { SharedElement } from 'react-navigation-shared-element';
 
 
 export default function GameDetailsPage(
@@ -54,10 +55,15 @@ export default function GameDetailsPage(
     return (
       <SafeAreaView style={globalStyles.container}>
         <View style={styles.upper}>
-          <Image
-            source={{uri: gameDetails.imageUri}}
-            style={styles.image}
-          />
+          
+          <SharedElement id={'photo'}>
+            <Image
+              source={{uri: gameDetails.imageUri}}
+              style={styles.image}
+            />
+          </SharedElement>
+          
+          
         </View>
         <View style={styles.lower}>
           <View style={styles.header}>
@@ -100,8 +106,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: '100%',
-    height: '100%'
+    // TODO : width & height must have a absolute value
+    width: 500,
+    height: 400,
+    // width: '100%',
+    // height: '100%'
   },
   header: {
     flex: 1,
