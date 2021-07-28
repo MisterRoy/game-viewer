@@ -22,6 +22,6 @@ It runs on both iOS and Android**
 * ### [RAWG REST API](https://rawg.io/apidocs)
 
 ## TODO list
-* ### [] Favorite games
-* ### [] Looking by genres
+* ### [ ] Favorite games
+* ### [ ] Looking by genres
 
